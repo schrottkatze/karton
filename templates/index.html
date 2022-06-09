@@ -4,10 +4,10 @@
     <div style="display: grid;
         grid-gap: 4px;
         grid-template-columns: repeat(auto-fit, 234px);
-        grid-template-rows: repeat(1, 100px);  ">
+        grid-template-rows: repeat(1, 78px);  ">
         <div>
             <label for="expiration">Expiration</label><br>
-            <select style="width: 100%;" name="expiration" id="expiration">
+            <select style="width: 100%;margin-top: 0" name="expiration" id="expiration">
                 <optgroup label="Expire">
                     <option value="1min">1 minute</option>
                     <option value="10min">10 minutes</option>
@@ -21,7 +21,7 @@
         {% if args.highlightsyntax %}
         <div>
             <label for="syntax-highlight">Syntax Highlighting</label><br>
-            <select style="width: 100%;" name="syntax-highlight" id="syntax-highlight">
+            <select style="width: 100%; ;margin-top: 0" name="syntax-highlight" id="syntax-highlight">
                 <option value="none">None</option>
                 <optgroup label="Source Code">
                     <option value="sh">Bash Shell</option>
@@ -58,13 +58,12 @@
         {%- else %}
         <input type="hidden" name="syntax-highlight" value="none">
         {%- endif %}
-
         <div>
-            <label>File attachment</label>
-            <br>
-            <input style="width: 100%;" type="file" id="file" name="file">
+            <label>File attachment</label><br>
+            <input style="width: 100%; height: 21px" type="file" id="file" name="file">
         </div>
     </div>
+    <br>
     <label>Content</label>
     <br>
     <textarea style="width: 100%; min-height: 100px" name="content" autofocus></textarea>

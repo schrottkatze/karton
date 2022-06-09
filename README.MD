@@ -1,7 +1,5 @@
 
-![Screenshot](git/index.png)
-
-# MicroBin
+# <img src="git/logo.png" alt="Logo" width="40"/> MicroBin
 
 
 ![Build](https://github.com/szabodanika/microbin/actions/workflows/rust.yml/badge.svg)
@@ -12,15 +10,12 @@ MicroBin is a super tiny, feature rich, configurable, self-contained and self-ho
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/szabodanika/microbin)
  
-Or install from Cargo: 
+Or install from Cargo:
+`cargo install microbin`, and run with your custom configuration: `microbin --port 8080 --highlightsyntax --editable`.
 
-`cargo install microbin`
-
-And run with your custom configuration:
-
-`microbin --port 8080 --highlightsyntax --editable`
 
 ### Features
+![Screenshot](git/index.png)
 - Is very small
 - Animal names instead of random numbers for pasta identifiers (64 animals)
 - File uploads (eg. server.com/file/pig-dog-cat)

@@ -7,6 +7,13 @@
     <title>{{ args.title.as_ref().unwrap() }}</title>
     {%- endif %}
 
+    <link rel="icon" type="image/png" href="/static/icon.ico">
+    <link rel="icon" type="image/png" href="/static/icon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/static/icon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/static/icon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/static/icon-512x512.png">
+    <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if !args.pure_html %}
@@ -39,11 +46,12 @@
 <b style="margin-right: 0.5rem">
 
     {% if !args.hide_logo %}
-        <i><span style="font-size:2.2rem; margin-right:1rem">μ</span></i>
+<!--        <i><span style="font-size:2.2rem; margin-right:1rem">μ</span></i>-->
+        <img width="25" style="margin-bottom: -0.4rem; margin-right: 0.4rem" src="static/icon-192x192.png"/>
     {%- endif %}
 
     {% if args.footer_text.as_ref().is_none() %}
-        MicroBin
+        <span>MicroBin</span>
     {%- else %}
         {{ args.title.as_ref().unwrap() }}
     {%- endif %}
