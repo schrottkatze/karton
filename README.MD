@@ -1,10 +1,8 @@
 
-# <img src="git/logo.png" alt="Logo" width="40"/> MicroBin
-
+# <img src="git/logo.png" alt="Logo" width="35" />    MicroBin
 
 ![Build](https://github.com/szabodanika/microbin/actions/workflows/rust.yml/badge.svg)
 ![crates.io](https://img.shields.io/crates/v/microbin.svg)
-
 
 MicroBin is a super tiny, feature rich, configurable, self-contained and self-hosted paste bin web application. It is very easy to set up and use, and will only require a few megabytes of memory and disk storage. It takes only a couple minutes to set it up, why not give it a try now?
 
@@ -13,9 +11,9 @@ MicroBin is a super tiny, feature rich, configurable, self-contained and self-ho
 Or install from Cargo:
 `cargo install microbin`, and run with your custom configuration: `microbin --port 8080 --highlightsyntax --editable`.
 
+![Screenshot](git/index.png)
 
 ### Features
-![Screenshot](git/index.png)
 - Is very small
 - Animal names instead of random numbers for pasta identifiers (64 animals)
 - File uploads (eg. server.com/file/pig-dog-cat)
