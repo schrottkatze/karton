@@ -1,37 +1,19 @@
-
-![Screenshot](.github/index.png)
-
 # MicroBin
-
-![Build](https://github.com/szabodanika/microbin/actions/workflows/rust.yml/badge.svg)
-![crates.io](https://img.shields.io/crates/v/microbin.svg)
-[![Docker Image](https://github.com/szabodanika/microbin/actions/workflows/docker.yml/badge.svg)](https://hub.docker.com/r/danielszabo99/microbin)
-[![Docker Pulls](https://img.shields.io/docker/pulls/danielszabo99/microbin?label=Docker%20pulls)](https://img.shields.io/docker/pulls/danielszabo99/microbin?label=Docker%20pulls)
-[![Support Server](https://img.shields.io/discord/662017309162078267.svg?color=7289da&label=Discord&logo=discord&style=flat-square)](https://discord.gg/3DsyTN7T)
 
 MicroBin is a super tiny, feature rich, configurable, self-contained and self-hosted paste bin web application. It is very easy to set up and use, and will only require a few megabytes of memory and disk storage. It takes only a couple minutes to set it up, why not give it a try now?
 
-Install from Cargo:
+## Note about this fork
 
-```bash
-cargo install microbin
-```
+I've forked MicroBin due to apparent neglect from the maintainer, and to fix various issues and annoyances to me personally.
 
-And run with your custom configuration:
+### TODOs:
 
-```bash
-microbin --port 8080 --public-path https://myserver.net --highlightsyntax --editable
-```
-
-Or get the Docker Image from [Dockerhub: danielszabo99/microbin](https://hub.docker.com/r/danielszabo99/microbin).
-
-On our website [microbin.eu](https://microbin.eu) you will find the following:
-
-- [Screenshots](https://microbin.eu/screenshots/)
-- [Quickstart Guide](https://microbin.eu/quickstart/)
-- [Documentation](https://microbin.eu/documentation/)
-- [Donations and Sponsorships](https://microbin.eu/donate/)
-- [Community](https://microbin.eu/community/)
+- [ ] Proper database (_seriously, json isn't a database_)
+- [ ] Configurable endpoints (_so a url shortener isn't lengthened by /url/_)
+- [ ] Proper auth and permissions (_so a single user can also use it and send links_)
+- [ ] Customizable keys (_so you can make fixed pastas_)
+	- [ ] Customizable wordset and length for the names
+- [ ] Non-env/args configurations
 
 ## Features
 
