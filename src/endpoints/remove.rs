@@ -10,6 +10,7 @@ use crate::AppState;
 use askama::Template;
 use std::fs;
 
+/// Endpoint to remove a pasta.
 #[get("/remove/{id}")]
 pub async fn remove(data: web::Data<AppState>, id: web::Path<String>) -> HttpResponse {
     if ARGS.readonly {

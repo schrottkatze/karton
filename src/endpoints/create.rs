@@ -27,6 +27,7 @@ pub async fn index() -> impl Responder {
         .body(IndexTemplate { args: &ARGS }.render().unwrap())
 }
 
+/// Pasta creation endpoint.
 pub async fn create(
     data: web::Data<AppState>,
     mut payload: Multipart,

@@ -13,6 +13,7 @@ struct PastaListTemplate<'a> {
     args: &'a Args,
 }
 
+/// The endpoint to view all currently registered pastas.
 #[get("/pastalist")]
 pub async fn list(data: web::Data<AppState>) -> HttpResponse {
     if ARGS.no_listing {

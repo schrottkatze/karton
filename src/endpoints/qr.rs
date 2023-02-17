@@ -16,6 +16,7 @@ struct QRTemplate<'a> {
     args: &'a Args,
 }
 
+/// Endpoint to open a QR code to a pasta.
 #[get("/qr/{id}")]
 pub async fn getqr(data: web::Data<AppState>, id: web::Path<String>) -> HttpResponse {
     // get access to the pasta collection

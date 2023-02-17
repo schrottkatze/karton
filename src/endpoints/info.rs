@@ -14,6 +14,7 @@ struct Info<'a> {
     message: &'a str,
 }
 
+/// Endpoint to get information about the instance.
 #[get("/info")]
 pub async fn info(data: web::Data<AppState>) -> HttpResponse {
     // get access to the pasta collection
