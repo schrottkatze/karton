@@ -144,7 +144,10 @@ impl Pasta {
     }
 
     pub fn content_escaped(&self) -> String {
-        self.content.replace('`', "\\`").replace('$', "\\$")
+        self.content
+            .replace('`', "\\`")
+            .replace('$', "\\$")
+            .replace("</script", "<\\/script")
     }
 }
 
