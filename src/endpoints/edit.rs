@@ -1,9 +1,9 @@
 use crate::args::Args;
 use crate::dbio::save_to_file;
 use crate::endpoints::errors::ErrorTemplate;
-use crate::util::animalnumbers::to_u64;
 use crate::util::hashids::to_u64 as hashid_to_u64;
 use crate::util::misc::remove_expired;
+use crate::util::pasta_id_converter::CONVERTER;
 use crate::{AppState, Pasta, ARGS};
 use actix_multipart::Multipart;
 use actix_web::{get, post, web, Error, HttpResponse};
@@ -24,7 +24,7 @@ pub async fn get_edit(data: web::Data<AppState>, id: web::Path<String>) -> HttpR
     let id = if ARGS.hash_ids {
         hashid_to_u64(&id).unwrap_or(0)
     } else {
-        to_u64(&id.into_inner()).unwrap_or(0)
+        CONVERTER.to_u64(&id.into_inner()).unwrap_or(0)
     };
 
     remove_expired(&mut pastas);
@@ -62,7 +62,7 @@ pub async fn post_edit(
     let id = if ARGS.hash_ids {
         hashid_to_u64(&id).unwrap_or(0)
     } else {
-        to_u64(&id.into_inner()).unwrap_or(0)
+        CONVERTER.to_u64(&id.into_inner()).unwrap_or(0)
     };
 
     let mut pastas = data.pastas.lock().await;

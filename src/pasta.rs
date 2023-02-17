@@ -6,8 +6,8 @@ use std::path::Path;
 use std::time::{SystemTime, UNIX_EPOCH};
 
 use crate::args::ARGS;
-use crate::util::animalnumbers::to_animal_names;
 use crate::util::hashids::to_hashids;
+use crate::util::pasta_id_converter::CONVERTER;
 use crate::util::syntaxhighlighter::html_highlight;
 
 #[derive(Serialize, Deserialize, PartialEq, Eq)]
@@ -55,7 +55,7 @@ impl Pasta {
         if ARGS.hash_ids {
             to_hashids(self.id)
         } else {
-            to_animal_names(self.id)
+            CONVERTER.to_names(self.id)
         }
     }
 

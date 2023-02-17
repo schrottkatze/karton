@@ -3,6 +3,7 @@ use lazy_static::lazy_static;
 use std::convert::Infallible;
 use std::fmt;
 use std::net::IpAddr;
+use std::path::PathBuf;
 use std::str::FromStr;
 
 lazy_static! {
@@ -123,6 +124,11 @@ pub struct Args {
     /// Replace built-in CSS file with a CSS file provided by the linked URL.
     #[clap(long, env = "MICROBIN_CUSTOM_CSS")]
     pub custom_css: Option<String>,
+
+    /// Replace built-in animal names file with custom names file for pasta links.
+    /// The file must be newline seperated.
+    #[clap(long, env = "MICROBIN_CUSTOM_NAMES")]
+    pub custom_names: Option<PathBuf>,
 
     /// Enable the use of Hash IDs for shorter URLs instead of animal names.
     #[clap(long, env = "MICROBIN_HASH_IDS")]

@@ -2,10 +2,10 @@ use crate::args::{Args, ARGS};
 use crate::dbio::save_to_file;
 use crate::endpoints::errors::ErrorTemplate;
 use crate::pasta::Pasta;
-use crate::util::animalnumbers::to_u64;
 use crate::util::hashids::to_u64 as hashid_to_u64;
 use crate::util::misc::remove_expired;
 use crate::AppState;
+use crate::util::pasta_id_converter::CONVERTER;
 
 use actix_web::{get, web, HttpResponse};
 use askama::Template;
@@ -27,7 +27,7 @@ pub async fn getpasta(data: web::Data<AppState>, id: web::Path<String>) -> HttpR
     let id = if ARGS.hash_ids {
         hashid_to_u64(&id).unwrap_or(0)
     } else {
-        to_u64(&id.into_inner()).unwrap_or(0)
+        CONVERTER.to_u64(&id.into_inner()).unwrap_or(0)
     };
 
     // remove expired pastas (including this one if needed)
@@ -92,7 +92,7 @@ pub async fn redirecturl(data: web::Data<AppState>, id: web::Path<String>) -> Ht
     let id = if ARGS.hash_ids {
         hashid_to_u64(&id).unwrap_or(0)
     } else {
-        to_u64(&id.into_inner()).unwrap_or(0)
+        CONVERTER.to_u64(&id.into_inner()).unwrap_or(0)
     };
 
     // remove expired pastas (including this one if needed)
@@ -160,7 +160,7 @@ pub async fn getrawpasta(data: web::Data<AppState>, id: web::Path<String>) -> St
     let id = if ARGS.hash_ids {
         hashid_to_u64(&id).unwrap_or(0)
     } else {
-        to_u64(&id.into_inner()).unwrap_or(0)
+        CONVERTER.to_u64(&id.into_inner()).unwrap_or(0)
     };
 
     // remove expired pastas (including this one if needed)

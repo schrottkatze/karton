@@ -20,7 +20,7 @@ pub mod args;
 pub mod pasta;
 
 pub mod util {
-    pub mod animalnumbers;
+    pub mod pasta_id_converter;
     pub mod auth;
     pub mod dbio;
     pub mod hashids;
