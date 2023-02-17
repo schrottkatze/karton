@@ -11,10 +11,10 @@ use actix_web::{middleware, web, App, HttpServer};
 use actix_web_httpauth::middleware::HttpAuthentication;
 use chrono::Local;
 use env_logger::Builder;
+use futures::lock::Mutex;
 use log::LevelFilter;
 use std::fs;
 use std::io::Write;
-use std::sync::Mutex;
 
 pub mod args;
 pub mod pasta;
@@ -68,14 +68,8 @@ async fn main() -> std::io::Result<()> {
     match fs::create_dir_all("./pasta_data/public") {
         Ok(dir) => dir,
         Err(error) => {
-            log::error!(
-                "Couldn't create data directory ./pasta_data/public/: {:?}",
-                error
-            );
-            panic!(
-                "Couldn't create data directory ./pasta_data/public/: {:?}",
-                error
-            );
+            log::error!("Couldn't create data directory ./pasta_data/public/: {error:?}");
+            panic!("Couldn't create data directory ./pasta_data/public/: {error:?}");
         }
     };
 

@@ -19,7 +19,7 @@ struct QRTemplate<'a> {
 #[get("/qr/{id}")]
 pub async fn getqr(data: web::Data<AppState>, id: web::Path<String>) -> HttpResponse {
     // get access to the pasta collection
-    let mut pastas = data.pastas.lock().unwrap();
+    let mut pastas = data.pastas.lock().await;
 
     let u64_id = if ARGS.hash_ids {
         hashid_to_u64(&id).unwrap_or(0)

@@ -37,7 +37,7 @@ pub async fn create(
             .finish());
     }
 
-    let mut pastas = data.pastas.lock().unwrap();
+    let mut pastas = data.pastas.lock().await;
 
     let timenow: i64 = match SystemTime::now().duration_since(UNIX_EPOCH) {
         Ok(n) => n.as_secs(),
@@ -65,18 +65,15 @@ pub async fn create(
     while let Some(mut field) = payload.try_next().await? {
         match field.name() {
             "editable" => {
-                // while let Some(_chunk) = field.try_next().await? {}
                 new_pasta.editable = true;
-                continue;
             }
             "private" => {
-                // while let Some(_chunk) = field.try_next().await? {}
                 new_pasta.private = true;
-                continue;
             }
             "expiration" => {
                 while let Some(chunk) = field.try_next().await? {
                     new_pasta.expiration = match std::str::from_utf8(&chunk).unwrap() {
+                        // TODO: customizable times
                         "1min" => timenow + 60,
                         "10min" => timenow + 60 * 10,
                         "1hour" => timenow + 60 * 60,
@@ -96,12 +93,12 @@ pub async fn create(
                         }
                     };
                 }
-
-                continue;
             }
             "burn_after" => {
                 while let Some(chunk) = field.try_next().await? {
                     new_pasta.burn_after_reads = match std::str::from_utf8(&chunk).unwrap() {
+                        // TODO: also make customizable
+                        // maybe options in config files, with defaults
                         // give an extra read because the user will be redirected to the pasta page automatically
                         "1" => 2,
                         "10" => 10,
@@ -115,8 +112,6 @@ pub async fn create(
                         }
                     };
                 }
-
-                continue;
             }
             "content" => {
                 let mut content = String::from("");
@@ -132,13 +127,11 @@ pub async fn create(
                         String::from("text")
                     };
                 }
-                continue;
             }
             "syntax-highlight" => {
                 while let Some(chunk) = field.try_next().await? {
                     new_pasta.extension = std::str::from_utf8(&chunk).unwrap().to_string();
                 }
-                continue;
             }
             "file" => {
                 if ARGS.no_file_upload {

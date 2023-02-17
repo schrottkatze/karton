@@ -14,11 +14,11 @@ pub fn save_to_file(pasta_data: &Vec<Pasta>) {
             serde_json::to_writer(writer, &pasta_data).expect("Failed to create JSON writer");
         }
         Err(_) => {
-            log::info!("Database file {} not found!", DATABASE_PATH);
+            log::info!("Database file {DATABASE_PATH} not found!");
             file = File::create(DATABASE_PATH);
             match file {
                 Ok(_) => {
-                    log::info!("Database file {} created.", DATABASE_PATH);
+                    log::info!("Database file {DATABASE_PATH} created.");
                     save_to_file(pasta_data);
                 }
                 Err(err) => {
@@ -27,7 +27,7 @@ pub fn save_to_file(pasta_data: &Vec<Pasta>) {
                         &DATABASE_PATH,
                         &err
                     );
-                    panic!("Failed to create database file {}: {}!", DATABASE_PATH, err)
+                    panic!("Failed to create database file {DATABASE_PATH}: {err}!")
                 }
             }
         }
@@ -46,10 +46,10 @@ pub fn load_from_file() -> io::Result<Vec<Pasta>> {
             Ok(data)
         }
         Err(_) => {
-            log::info!("Database file {} not found!", DATABASE_PATH);
+            log::info!("Database file {DATABASE_PATH} not found!");
             save_to_file(&Vec::<Pasta>::new());
 
-            log::info!("Database file {} created.", DATABASE_PATH);
+            log::info!("Database file {DATABASE_PATH} created.");
             load_from_file()
         }
     }

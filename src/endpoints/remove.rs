@@ -18,7 +18,7 @@ pub async fn remove(data: web::Data<AppState>, id: web::Path<String>) -> HttpRes
             .finish();
     }
 
-    let mut pastas = data.pastas.lock().unwrap();
+    let mut pastas = data.pastas.lock().await;
 
     let id = if ARGS.hash_ids {
         hashid_to_u64(&id).unwrap_or(0)

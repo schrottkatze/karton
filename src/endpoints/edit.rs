@@ -19,7 +19,7 @@ struct EditTemplate<'a> {
 
 #[get("/edit/{id}")]
 pub async fn get_edit(data: web::Data<AppState>, id: web::Path<String>) -> HttpResponse {
-    let mut pastas = data.pastas.lock().unwrap();
+    let mut pastas = data.pastas.lock().await;
 
     let id = if ARGS.hash_ids {
         hashid_to_u64(&id).unwrap_or(0)
@@ -65,7 +65,7 @@ pub async fn post_edit(
         to_u64(&id.into_inner()).unwrap_or(0)
     };
 
-    let mut pastas = data.pastas.lock().unwrap();
+    let mut pastas = data.pastas.lock().await;
 
     remove_expired(&mut pastas);
 

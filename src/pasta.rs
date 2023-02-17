@@ -45,6 +45,8 @@ pub struct Pasta {
     pub last_read: i64,
     pub read_count: u64,
     pub burn_after_reads: u64,
+    // what types can there be?
+    // `url`, `text`, 
     pub pasta_type: String,
 }
 
@@ -96,25 +98,25 @@ impl Pasta {
         // get seconds since last read and convert it to days
         let days = ((timenow - self.last_read) / 86400) as u16;
         if days > 1 {
-            return format!("{} days ago", days);
+            return format!("{days} days ago");
         };
 
         // it's less than 1 day, let's do hours then
         let hours = ((timenow - self.last_read) / 3600) as u16;
         if hours > 1 {
-            return format!("{} hours ago", hours);
+            return format!("{hours} hours ago");
         };
 
         // it's less than 1 hour, let's do minutes then
         let minutes = ((timenow - self.last_read) / 60) as u16;
         if minutes > 1 {
-            return format!("{} minutes ago", minutes);
+            return format!("{minutes} minutes ago");
         };
 
         // it's less than 1 minute, let's do seconds then
         let seconds = (timenow - self.last_read) as u16;
         if seconds > 1 {
-            return format!("{} seconds ago", seconds);
+            return format!("{seconds} seconds ago");
         };
 
         // it's less than 1 second?????
