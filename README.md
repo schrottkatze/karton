@@ -21,6 +21,10 @@ Please do not ask for help in the issues of the original MicroBin repository, I'
 	- [ ] Docker
 	- [ ] Various other distribution specific repositories?
 
+- [ ] Quality
+	- [ ] Tests
+	- [ ] Proper design stuff
+
 - [ ] Proper database (_seriously, json isn't a database_)
 - [ ] Configurable endpoints (_so a url shortener isn't lengthened by /url/_)
 - [ ] Proper auth and permissions (_so a single user can also use it and send links_)
@@ -32,6 +36,7 @@ Please do not ask for help in the issues of the original MicroBin repository, I'
 - [ ] image embeds
 - [ ] further endpoint configuration
 	- [ ] disable remove
+
 
 ## Contact
 
