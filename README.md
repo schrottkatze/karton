@@ -34,8 +34,11 @@ Please do not ask for help in the issues of the original MicroBin repository, I'
 - [ ] Non-env/args configurations
 - [ ] encrypted pastas
 - [ ] image embeds
+- [ ] Markdown pastas
 - [ ] further endpoint configuration
 	- [ ] disable remove
+- [ ] Click logo/name to get to root
+- [ ] Move frontend interactive code to rust as well
 
 
 ## Contact
