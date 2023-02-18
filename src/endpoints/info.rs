@@ -20,7 +20,7 @@ pub async fn info(data: web::Data<AppState>) -> HttpResponse {
     // get access to the pasta collection
     let pastas = data.pastas.lock().await;
 
-    // todo status report more sophisticated
+    // TODO: status report more sophisticated
     let mut status = "OK";
     let mut message = "";
 
