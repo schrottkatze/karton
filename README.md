@@ -27,6 +27,7 @@ Please do not ask for help in the issues of the original MicroBin repository, I'
 
 - [ ] Proper database (_seriously, json isn't a database_)
 - [ ] Configurable endpoints (_so a url shortener isn't lengthened by /url/_)
+	- [ ] make root page a redirect and root based redirect
 - [ ] Proper auth and permissions (_so a single user can also use it and send links_)
 	- [ ] multi-user
 - [ ] Customizable keys (_so you can make fixed pastas_)
