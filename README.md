@@ -41,6 +41,8 @@ Please do not ask for help in the issues of the original MicroBin repository, I'
 - [ ] Click logo/name to get to root
 - [ ] Move frontend interactive code to rust as well
 
+- [x] removed light mode
+
 
 ## Contact
 
