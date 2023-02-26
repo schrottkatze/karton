@@ -83,9 +83,21 @@ async fn main() -> std::io::Result<()> {
             .wrap(middleware::NormalizePath::trim())
             .service(create::index)
             .service(info::info)
-            .service(pasta_endpoint::getpasta)
-            .service(pasta_endpoint::getrawpasta)
-            .service(pasta_endpoint::redirecturl)
+            .route(
+                &format!("/{}/{{id}}", ARGS.pasta_endpoint), 
+                web::get().to(pasta_endpoint::getpasta)
+            )
+            .route(
+                &format!("/{}/{{id}}", ARGS.raw_endpoint), 
+                web::get().to(pasta_endpoint::getrawpasta)
+            )
+            .route(
+                &format!("/{}/{{id}}", ARGS.url_endpoint), 
+                web::get().to(pasta_endpoint::redirecturl)
+            )
+            //.service(pasta_endpoint::getpasta)
+            //.service(pasta_endpoint::getrawpasta)
+            //.service(pasta_endpoint::redirecturl)
             .service(edit::get_edit)
             .service(edit::post_edit)
             .service(static_resources::static_resources)

@@ -197,6 +197,6 @@ pub async fn create(
         CONVERTER.to_names(id)
     };
     Ok(HttpResponse::Found()
-        .append_header(("Location", format!("{}/pasta/{}", ARGS.public_path, slug)))
+        .append_header(("Location", format!("{}/{}/{}", ARGS.public_path, ARGS.pasta_endpoint, slug)))
         .finish())
 }

@@ -9,7 +9,7 @@
     Copy Redirect
   </button>
   {%- endif %}
-  <a style="margin-right: 1rem" href="{{ args.public_path }}/raw/{{pasta.id_as_animals()}}">Raw Text
+  <a style="margin-right: 1rem" href="{{ args.public_path }}/{{ args.raw_endpoint }}/{{pasta.id_as_animals()}}">Raw Text
     Content</a>
   {%- endif %}
   {% if args.qr && args.public_path.to_string() != "" %}
@@ -66,8 +66,8 @@
   const copyTextBtn = document.getElementById("copy-text-button")
   const copyRedirectBtn = document.getElementById("copy-redirect-button")
   const content = `{{ pasta.content_escaped() }}`
-  const url = `{{ args.public_path }}/pasta/{{pasta.id_as_animals()}}`
-  const redirect_url = `{{ args.public_path }}/url/{{pasta.id_as_animals()}}`
+  const url = `{{ args.public_path }}/{{ args.pasta_endpoint }}/{{pasta.id_as_animals()}}`
+  const redirect_url = `{{ args.public_path }}/{{ args.url_endpoint }}/{{pasta.id_as_animals()}}`
 
   copyURLBtn.addEventListener("click", () => {
     navigator.clipboard.writeText(url)

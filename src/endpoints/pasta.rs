@@ -19,7 +19,6 @@ struct PastaTemplate<'a> {
 }
 
 /// Endpoint to view a pasta.
-#[get("/pasta/{id}")]
 pub async fn getpasta(data: web::Data<AppState>, id: web::Path<String>) -> HttpResponse {
     // get access to the pasta collection
     let mut pastas = data.pastas.lock().await;
@@ -84,7 +83,6 @@ pub async fn getpasta(data: web::Data<AppState>, id: web::Path<String>) -> HttpR
 }
 
 /// Endpoint for redirection.
-#[get("/url/{id}")]
 pub async fn redirecturl(data: web::Data<AppState>, id: web::Path<String>) -> HttpResponse {
     // get access to the pasta collection
     let mut pastas = data.pastas.lock().await;
@@ -152,7 +150,6 @@ pub async fn redirecturl(data: web::Data<AppState>, id: web::Path<String>) -> Ht
 }
 
 /// Endpoint to request pasta as raw file.
-#[get("/raw/{id}")]
 pub async fn getrawpasta(data: web::Data<AppState>, id: web::Path<String>) -> String {
     // get access to the pasta collection
     let mut pastas = data.pastas.lock().await;

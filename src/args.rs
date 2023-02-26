@@ -133,6 +133,18 @@ pub struct Args {
     /// Enable the use of Hash IDs for shorter URLs instead of animal names.
     #[clap(long, env = "MICROBIN_HASH_IDS")]
     pub hash_ids: bool,
+
+    /// Endpoint for /url/
+    #[clap(long, env = "MICROBIN_URL_EP", default_value = "url" )]
+    pub url_endpoint: String,
+
+    /// Endpoint for /pasta/
+    #[clap(long, env = "MICROBIN_PASTA_EP", default_value = "pasta" )]
+    pub pasta_endpoint: String,
+
+    /// Endpoint for /raw/
+    #[clap(long, env = "MICROBIN_RAW_EP", default_value = "raw" )]
+    pub raw_endpoint: String,
 }
 
 #[derive(Debug, Clone)]
