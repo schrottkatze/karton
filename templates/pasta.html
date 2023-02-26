@@ -32,6 +32,10 @@
 {% if pasta.file.is_some() %}
 <br>
 <br>
+{% if pasta.file.as_ref().unwrap().is_image() %}
+<img src="{{ args.public_path }}/file/{{pasta.id_as_animals()}}/{{pasta.file.as_ref().unwrap().name()}}" alt="">
+<br>
+{%- endif %}
 <a href="{{ args.public_path }}/file/{{pasta.id_as_animals()}}/{{pasta.file.as_ref().unwrap().name()}}" download>
   Download attached file: '{{pasta.file.as_ref().unwrap().name()}}' [{{pasta.file.as_ref().unwrap().size}}]
 </a>

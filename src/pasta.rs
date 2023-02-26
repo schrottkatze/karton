@@ -30,6 +30,12 @@ impl PastaFile {
     pub fn name(&self) -> &str {
         &self.name
     }
+
+    /// Check if file is an image for embedding
+    pub fn is_image(&self) -> bool {
+        let guess = mime_guess::from_path(&self.name).first_or_text_plain();
+        guess.type_() == "image"
+    }
 }
 
 #[derive(Serialize, Deserialize)]

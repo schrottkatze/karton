@@ -21,6 +21,10 @@ pub async fn info(data: web::Data<AppState>) -> HttpResponse {
     let pastas = data.pastas.lock().await;
 
     // TODO: status report more sophisticated
+    // maybe:
+    // - detect weird/invalid configurations?
+    // - detect server storage issues
+    // - detect performance problems?
     let mut status = "OK";
     let mut message = "";
 
