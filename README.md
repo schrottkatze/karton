@@ -35,10 +35,13 @@ Please do not ask for help in the issues of the original MicroBin repository, I'
 - [ ] Non-env/args configurations
 - [ ] encrypted pastas
 - [ ] image embeds
+	- [x] in pasta view
+	- [ ] easy to copy image embed url
 - [ ] Markdown pastas
 - [ ] further endpoint configuration
+	- [x] customizable `pasta`, `url` and `raw` endpoints
 	- [ ] disable remove
-- [ ] Click logo/name to get to root
+- [x] Click logo/name to get to root
 - [ ] Move frontend interactive code to rust as well
 
 - [x] removed light mode
