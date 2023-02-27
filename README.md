@@ -42,6 +42,7 @@ Please do not ask for help in the issues of the original MicroBin repository, I'
 	- [x] customizable `pasta`, `url` and `raw` endpoints
 	- [ ] disable remove
 - [x] Click logo/name to get to root
+- [ ] switch to other template engine
 - [ ] Move frontend interactive code to rust as well
 
 - [x] removed light mode
