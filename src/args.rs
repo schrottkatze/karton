@@ -31,8 +31,8 @@ pub struct Args {
     pub editable: bool,
 
     /// The text displayed in the browser navigation bar.
-    #[clap(long, env = "MICROBIN_TITLE")]
-    pub title: Option<String>,
+    #[clap(long, env = "MICROBIN_TITLE", default_value = " MicroBin")]
+    pub title: String,
 
     /// The web interfaces' footer text.
     #[clap(long, env = "MICROBIN_FOOTER_TEXT")]

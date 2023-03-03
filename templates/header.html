@@ -2,11 +2,7 @@
 <html>
 
 <head>
-    {% if args.title.as_ref().is_none() %}
-    <title>MicroBin</title>
-    {%- else %}
-    <title>{{ args.title.as_ref().unwrap() }}</title>
-    {%- endif %}
+	<title>MicroBin</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +51,8 @@
 					src="{{ args.public_path }}/static/logo.png"
 				>
 			</a>
-            {%- endif %} {% if args.title.as_ref().is_none() %}
-            MicroBin {%- else %} {{ args.title.as_ref().unwrap() }} {%- endif %}
+			{%- endif %}
+			MicroBin
         </b>
 
         <a href="{{ args.public_path }}/" style="margin-right: 0.5rem; margin-left: 0.5rem">New
