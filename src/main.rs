@@ -7,20 +7,17 @@ use crate::endpoints::{
 use crate::pasta::Pasta;
 use crate::util::dbio;
 use actix_web::middleware::Condition;
-use actix_web::{middleware, web, App, HttpServer, HttpResponse, get};
+use actix_web::{middleware, web, App, HttpServer};
 use actix_web_httpauth::middleware::HttpAuthentication;
 use chrono::Local;
 use env_logger::Builder;
 use futures::lock::Mutex;
 use log::LevelFilter;
-use templates::BasePage;
 use std::fs;
 use std::io::Write;
 
 pub mod args;
 pub mod pasta;
-
-pub mod templates;
 
 pub mod util {
     pub mod pasta_id_converter;
@@ -111,7 +108,6 @@ async fn main() -> std::io::Result<()> {
             .wrap(middleware::Logger::default())
             .service(remove::remove)
             .service(pastalist::list)
-            .service(testtemplate)
             .wrap(Condition::new(
                 ARGS.auth_username.is_some(),
                 HttpAuthentication::basic(util::auth::auth_validator),
@@ -121,15 +117,4 @@ async fn main() -> std::io::Result<()> {
     .workers(ARGS.threads as usize)
     .run()
     .await
-}
-
-#[get("/testtemplate")]
-async fn testtemplate() -> HttpResponse {
-    HttpResponse::Ok()
-        .content_type("text/html")
-        .body(BasePage {
-            body: markup::new! {
-                p "Test content!"
-            }
-        }.to_string())
 }
