@@ -22,7 +22,7 @@
 </div>
 <div style="float: right">
   <a style="margin-right: 0.5rem"
-    href="{{ args.public_path }}/pasta/{{pasta.id_as_animals()}}"><i>{{pasta.id_as_animals()}}</i></a>
+	 href="{{ args.public_path }}/{{ args.pasta_endpoint }}/{{pasta.id_as_animals()}}"><i>{{pasta.id_as_animals()}}</i></a>
   {% if args.public_path.to_string() != "" %}
   <button id="copy-url-button" class="copy-button" style="margin-right: 0">
     Copy URL
