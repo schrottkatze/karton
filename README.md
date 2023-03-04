@@ -40,6 +40,7 @@ Please do not ask for help in the issues of the original MicroBin repository, I'
 - [ ] Markdown pastas
 - [ ] further endpoint configuration
 	- [x] customizable `pasta`, `url` and `raw` endpoints
+	- [ ] simplified media embed endpoints (/file/$id or /embed/$id by default? maybe with compression?)
 	- [ ] disable remove
 - [x] Click logo/name to get to root
 - [ ] switch to other template engine
