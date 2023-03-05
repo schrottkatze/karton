@@ -1,10 +1,8 @@
-# MicroBin
+# Karton
 
-This is a fork of [MicroBin](https://github.com/szabodanika/microbin) intends to fix some bugs and add some features to MicroBin.
+A small, rusty pastebin with URL shortener functionality.
 
-I deliberately removed docker support for now. 
-
-Please do not ask for help in the issues of the original MicroBin repository, I'd be happy to help you with any problems here though. 
+This is a fork of [MicroBin](https://github.com/szabodanika/microbin).
 
 ## TODOs:
 
