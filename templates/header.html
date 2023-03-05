@@ -44,15 +44,13 @@
         <b style="margin-right: 0.5rem">
 
             {% if !args.hide_logo %}
-			<a href="{{ args.public_path }}/">
-				<img 
-					width=26 
-					style="margin-bottom: -6px; margin-right: 0.5rem;"
-					src="{{ args.public_path }}/static/logo.png"
-				>
-			</a>
+			<a href="{{ args.public_path }}/"><img 
+				width=48
+				style="margin-bottom: -12px;"
+				src="{{ args.public_path }}/static/logo.png"
+			></a>
 			{%- endif %}
-			MicroBin
+			{{ args.title }}
         </b>
 
         <a href="{{ args.public_path }}/" style="margin-right: 0.5rem; margin-left: 0.5rem">New

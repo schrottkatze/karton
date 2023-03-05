@@ -1160,6 +1160,35 @@ dependencies = [
 ]
 
 [[package]]
+name = "karton"
+version = "2.0.0"
+dependencies = [
+ "actix-files",
+ "actix-multipart",
+ "actix-web",
+ "actix-web-httpauth",
+ "askama",
+ "askama-filters",
+ "bytesize",
+ "chrono",
+ "clap",
+ "env_logger",
+ "futures",
+ "harsh",
+ "lazy_static",
+ "linkify",
+ "log",
+ "mime_guess",
+ "qrcode-generator",
+ "rand",
+ "rust-embed",
+ "sanitize-filename",
+ "serde",
+ "serde_json",
+ "syntect",
+]
+
+[[package]]
 name = "language-tags"
 version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1279,35 +1308,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5aa361d4faea93603064a027415f07bd8e1d5c88c9fbf68bf56a285428fd79ce"
 dependencies = [
  "autocfg",
-]
-
-[[package]]
-name = "microbin"
-version = "2.0.0"
-dependencies = [
- "actix-files",
- "actix-multipart",
- "actix-web",
- "actix-web-httpauth",
- "askama",
- "askama-filters",
- "bytesize",
- "chrono",
- "clap",
- "env_logger",
- "futures",
- "harsh",
- "lazy_static",
- "linkify",
- "log",
- "mime_guess",
- "qrcode-generator",
- "rand",
- "rust-embed",
- "sanitize-filename",
- "serde",
- "serde_json",
- "syntect",
 ]
 
 [[package]]

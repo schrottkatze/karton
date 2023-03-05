@@ -2,16 +2,16 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="31.999998"
-   height="31.999998"
-   viewBox="0 0 8.4666661 8.4666661"
+   width="32"
+   height="32"
+   viewBox="0 0 8.4666666 8.4666666"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
-   sodipodi:docname="logo.svg"
-   inkscape:export-filename="logo.png"
-   inkscape:export-xdpi="384"
-   inkscape:export-ydpi="384"
+   sodipodi:docname="microbin-logo.svg"
+   inkscape:export-filename="microbin-logo-exp.svg"
+   inkscape:export-xdpi="144"
+   inkscape:export-ydpi="144"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -56,8 +56,8 @@
          id="path2056" />
       <path
          id="path3512"
-         style="color:#000000;fill:#f7f7ff;fill-opacity:1;-inkscape-stroke:none"
-         d="M 4.3651082,5.3087199 4.2322998,5.3748657 4.1015584,5.3097534 v 1.5260051 l 0.1328085,0.066663 0.1307413,-0.065629 z" />
+         style="color:#000000;fill:#f7f7ff;-inkscape-stroke:none;fill-opacity:1"
+         d="M 4.3651082 5.3087199 L 4.2322998 5.3748657 L 4.1015584 5.3097534 L 4.1015584 6.8357585 L 4.2343669 6.9024211 L 4.3651082 6.836792 L 4.3651082 5.3087199 z " />
     </g>
     <g
        id="g18197"
@@ -65,7 +65,7 @@
        style="display:inline">
       <path
          id="path14440"
-         style="color:#000000;display:inline;fill:#f7f7ff;fill-opacity:1;-inkscape-stroke:none"
+         style="color:#000000;display:inline;fill:#f7f7ff;-inkscape-stroke:none;fill-opacity:1"
          d="M 4.6663818,2.8716593 4.3862956,3.0959351 h 0.045475 L 5.4063883,3.291272 5.709729,4.0462646 5.9464071,3.9279256 5.5996582,3.058728 Z M 2.6199951,2.9434896 2.4618652,3.8989868 2.7088786,4.0230103 2.8571899,3.1331421 Z" />
       <path
          style="color:#000000;fill:#f7f7ff;-inkscape-stroke:none"
@@ -74,7 +74,7 @@
     </g>
     <path
        id="path22977"
-       style="color:#000000;fill:#f7f7ff;fill-opacity:1;-inkscape-stroke:none"
+       style="color:#000000;fill:#f7f7ff;-inkscape-stroke:none;fill-opacity:1"
        d="M 5.94434,3.5646403 6.0657796,3.8684977 6.3086589,3.7470581 Z m -3.5723918,0.074414 -0.2149739,0.1074869 0.181901,0.090951 z"
        sodipodi:nodetypes="cccccccc" />
   </g>

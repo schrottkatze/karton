@@ -1,14 +1,14 @@
 [package]
-name = "microbin"
+name = "karton"
 version = "2.0.0"
 edition = "2021"
-authors = ["Daniel Szabo <daniel.szabo99@outlook.com>", "Jade <jade@schrottkatze.de>"]
+authors = ["Jade <jade@schrottkatze.de>", "Daniel Szabo <daniel.szabo99@outlook.com>"]
 license = "BSD-3-Clause"
 description = "Simple, performant, configurable, entirely self-contained Pastebin and URL shortener."
 readme = "README.md"
 homepage = "https://gitlab.com/obsidianical/microbin"
 repository = "https://gitlab.com/obsidianical/microbin"
-keywords = ["pastebin", "pastabin", "microbin", "actix", "selfhosted"]
+keywords = ["pastebin", "pastabin", "karton", "microbin", "actix", "selfhosted"]
 categories = ["pastebins"]
 
 [dependencies]

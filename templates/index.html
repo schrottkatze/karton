@@ -179,11 +179,14 @@
         {% endif %}
         {% if args.readonly %}
         <b>
-            <input style="width: 140px; float: right; background-color: #0076d18f;" disabled type="submit"
+            <!--<input style="width: 140px; float: right; background-color: #0076d18f;" disabled type="submit"-->
+                <!--value="Read Only" /></b>-->
+            <input style="width: 140px; float: right" disabled type="submit"
                 value="Read Only" /></b>
         {%- else %}
         <b>
-            <input style="width: 140px; float: right; background-color: #0076d18f;" type="submit" value="Save" />
+            <!--<input style="width: 140px; float: right; background-color: #0076d18f;" type="submit" value="Save" />-->
+			<input style="width: 140px; float: right" type="submit" value="Save" />
         </b>
         {%- endif %}
     </div>
