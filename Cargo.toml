@@ -8,7 +8,7 @@ description = "Simple, performant, configurable, entirely self-contained Pastebi
 readme = "README.md"
 homepage = "https://gitlab.com/obsidianical/microbin"
 repository = "https://gitlab.com/obsidianical/microbin"
-keywords = ["pastebin", "pastabin", "karton", "microbin", "actix", "selfhosted"]
+keywords = ["pastebin", "karton", "microbin", "actix", "selfhosted"]
 categories = ["pastebins"]
 
 [dependencies]
