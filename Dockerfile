@@ -1,4 +1,4 @@
-FROM rust:latest as build
+FROM docker.io/rust:latest as build
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ RUN \
   cargo build --release
 
 # https://hub.docker.com/r/bitnami/minideb
-FROM bitnami/minideb:latest
+FROM docker.io/bitnami/minideb:latest
 
 # microbin will be in /app
 WORKDIR /app
@@ -28,8 +28,8 @@ COPY --from=build \
 
 # copy built executable
 COPY --from=build \
-  /app/target/release/microbin \
-  /usr/bin/microbin
+  /app/target/release/karton \
+  /usr/bin/karton
 
 # Expose webport used for the webserver to the docker runtime
 EXPOSE 8080

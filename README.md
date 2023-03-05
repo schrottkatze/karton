@@ -35,7 +35,7 @@ This is a fork of [MicroBin](https://github.com/szabodanika/microbin).
 - [ ] Distribution
 	- [ ] nixpkgs
 	- [x] crates.io
-	- [ ] Docker
+	- [x] Docker hub
 	- [ ] Various other distribution specific repositories?
 
 - [ ] Quality
