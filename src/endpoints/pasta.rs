@@ -7,7 +7,7 @@ use crate::util::misc::remove_expired;
 use crate::AppState;
 use crate::util::pasta_id_converter::CONVERTER;
 
-use actix_web::{get, web, HttpResponse};
+use actix_web::{web, HttpResponse};
 use askama::Template;
 use std::time::{SystemTime, UNIX_EPOCH};
 
