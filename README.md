@@ -2,6 +2,8 @@
 
 A small, rusty pastebin with URL shortener functionality.
 
+The github repository is a mirror of [this gitlab repository](https://gitlab.com/obsidianical/microbin).
+
 This is a fork of [MicroBin](https://github.com/szabodanika/microbin).
 
 ## TODOs:
