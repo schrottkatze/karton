@@ -20,52 +20,78 @@ This is a fork of [MicroBin](https://github.com/szabodanika/microbin).
 - Styling via [water.css](https://github.com/kognise/water.css)
 - Customizable endpoints
 
-## TODOs:
+## Roadmap
 
-- [x] removed light mode
+This is only a rough time guide for what to get done by which version, nothing fixed.
 
+### v2.0
+
+- [x] Removed light mode
 - [x] Rebrand
 	- [x] New name and logo
 	- [x] New README
-	- [ ] installation guides
-	- [ ] Website
-	- [ ] Official central instance
-	- [ ] Donation thing?
-
-- [ ] Distribution
-	- [ ] nixpkgs
-	- [x] crates.io
-	- [x] Docker hub
-	- [ ] Various other distribution specific repositories?
-
-- [ ] Quality
-	- [ ] Tests
 	- [x] New theme
-	- [ ] Proper database (_seriously, json isn't a database_)
-	- [ ] Proper auth and permissions (_so a single user can also use it and send links_)
-		- [ ] multi-user
-	- [x] Click logo/name to get to root
+- [x] Distribution on crates.io
+- [x] Distribution on Docker hub
+- [x] Image embedding in pasta page
+- [x] Custom names file
+- [x] Click logo/name to get to root
 
-- [ ] Customizability
-	- [ ] Customizable keys (_so you can make fixed pastas_)
-		- [x] Customizable wordset 
-	- [ ] Non-env/args configurations
-	- [ ] further endpoint configuration
-		- [x] customizable `pasta`, `url` and `raw` endpoints
-		- [ ] simplified media embed endpoints (/file/$id or /embed/$id by default? maybe with compression?)
-		- [ ] disable remove
-		- [ ] make root page a redirect and root based redirect
-	- [ ] easy to customize logo, icon etc.
-	- [ ] simplified themeing (only colors etc)
+### v2.1
 
-- [ ] Features
-	- [ ] encrypted pastas
-	- [ ] image embeds
-		- [x] in pasta view
-		- [ ] easy to copy image embed url
-	- [ ] Markdown pastas
+- [ ] Installation guides 
+- [ ] Copying embed urls more easily (some button for that)
+- [ ] Api for requesting customized url info
+- [ ] Config file support 
+- [ ] Markdown pastas
 
+### v2.2
 
+- [ ] Proper docs
+- [ ] Improved rustdoc
+- [ ] Non-web client library 
+- [ ] CLI client
+- [ ] Easier customization of instance names and logos
+- [ ] Easier basic themeing
+	- [ ] Colors
+	- [ ] Corner rounding
+
+### v2.3
+
+- [ ] Encrypted pastas
+
+### v3.0
+
+- [ ] Deprecate JSON db, replace with SQLite
+- [ ] Rework internal data structures
+	- [ ] Map custom keys to ids
+	- [ ] Make hash ids, names and custom keys usable at once
+- [ ] Users
+	- [ ] Reporting pastas
+	- [ ] Admin panel
+- [ ] Improve remove api
+- [ ] Status/health/info improvements
+	- [ ] Storage thats left
+	- [ ] Db status
+	- [ ] Pastas on the instance
+	- [ ] Users
+	- [ ] Errors
+
+### future
+
+- [ ] Federation
+	- [ ] Requesting pastas from other instances
+	- [ ] When cli is complete, set default instance to route requests over
+	- [ ] Fine grained permissions
+- [ ] Postgresql db support
+- [ ] Pasta comments?
+
+### not related to features, therefor not versioned
+
+- [ ] Official central instance
+- [ ] Donation setup?
+- [ ] Distribution on nixpkgs
+- [ ] Website
 
 ## Contact
 
