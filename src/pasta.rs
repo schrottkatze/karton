@@ -155,7 +155,7 @@ impl Pasta {
         self.content
             .replace('`', "\\`")
             .replace('$', "\\$")
-            .replace("</script", "<\\/script")
+            .replace('/', "\\/")
     }
 }
 
