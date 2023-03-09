@@ -20,6 +20,53 @@ This is a fork of [MicroBin](https://github.com/szabodanika/microbin).
 - Styling via [water.css](https://github.com/kognise/water.css)
 - Customizable endpoints
 
+## Installation guide
+
+Karton is available on [Docker hub](https://hub.docker.com/r/schrottkatze/karton), [crates.io](https://crates.io/crates/karton) and using the nix flake.
+
+The only "officially supported" (I will actively debug and search for the problem) method is the last one using nix flakes.
+
+### Installation via the nix flake
+
+Add the repository to your inputs.
+
+```nix
+	karton.url = "git+https://gitlab.com/obsidianical/microbin.git";
+```
+
+```nix
+# microbin.nix
+{ inputs, config, pkgs, ... }:
+{
+  environment.systemPackages = [ inputs.karton.defaultPackage."x86_64-linux" ];
+  systemd.services.karton = {
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+    environment = {
+	  # set environment variables to configure karton
+      KARTON_HASH_IDS = "";
+      KARTON_EDITABLE = "";
+      KARTON_PRIVATE = "";
+      KARTON_HIGHLIGHTSYNTAX = "";
+      # adjust this to your domain
+      KARTON_PUBLIC_PATH = "https://example.org";
+      KARTON_QR = "";
+      # configure endpoints to be shorter
+      KARTON_URL_EP = "u";
+      KARTON_RAW_EP = "r";
+      KARTON_PASTA_EP = "p";
+    };
+    script = "${inputs.karton.defaultPackage."x86_64-linux"}/bin/karton";
+    # register a simple systemd service
+    serviceConfig = {
+      Type = "simple";
+      RootDirectory="/";
+      WorkingDirectory = "/karton";
+    };
+  };
+}
+```
+
 ## Roadmap
 
 This is only a rough time guide for what to get done by which version, nothing fixed.
@@ -40,6 +87,7 @@ This is only a rough time guide for what to get done by which version, nothing f
 ### v2.1
 
 - [ ] Installation guides 
+	 - [x] nix flake
 - [ ] Copying embed urls more easily (some button for that)
 - [ ] Api for requesting customized url info
 - [ ] Config file support 
