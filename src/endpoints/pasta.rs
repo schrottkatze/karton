@@ -7,6 +7,7 @@ use crate::util::misc::remove_expired;
 use crate::AppState;
 use crate::util::pasta_id_converter::CONVERTER;
 
+use actix_web::http::StatusCode;
 use actix_web::{web, HttpResponse};
 use askama::Template;
 use std::time::{SystemTime, UNIX_EPOCH};
@@ -77,9 +78,12 @@ pub async fn getpasta(data: web::Data<AppState>, id: web::Path<String>) -> HttpR
 
     // otherwise
     // send pasta not found error
-    HttpResponse::Ok()
+    HttpResponse::NotFound()
         .content_type("text/html")
-        .body(ErrorTemplate { args: &ARGS }.render().unwrap())
+        .body(ErrorTemplate { 
+            status_code: StatusCode::NOT_FOUND,
+            args: &ARGS 
+        }.render().unwrap())
 }
 
 /// Endpoint for redirection.
@@ -136,17 +140,23 @@ pub async fn redirecturl(data: web::Data<AppState>, id: web::Path<String>) -> Ht
             return response;
         // send error if we're trying to open a non-url pasta as a redirect
         } else {
-            HttpResponse::Ok()
+            HttpResponse::NotFound()
                 .content_type("text/html")
-                .body(ErrorTemplate { args: &ARGS }.render().unwrap());
+                .body(ErrorTemplate { 
+                    status_code: StatusCode::NOT_FOUND,
+                    args: &ARGS 
+                }.render().unwrap());
         }
     }
 
     // otherwise
     // send pasta not found error
-    HttpResponse::Ok()
+    HttpResponse::NotFound()
         .content_type("text/html")
-        .body(ErrorTemplate { args: &ARGS }.render().unwrap())
+        .body(ErrorTemplate { 
+            status_code: StatusCode::NOT_FOUND,
+            args: &ARGS 
+        }.render().unwrap())
 }
 
 /// Endpoint to request pasta as raw file.

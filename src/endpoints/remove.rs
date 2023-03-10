@@ -1,3 +1,4 @@
+use actix_web::http::StatusCode;
 use actix_web::{get, web, HttpResponse};
 
 use crate::args::ARGS;
@@ -58,7 +59,10 @@ pub async fn remove(data: web::Data<AppState>, id: web::Path<String>) -> HttpRes
 
     remove_expired(&mut pastas);
 
-    HttpResponse::Ok()
+    HttpResponse::NotFound()
         .content_type("text/html")
-        .body(ErrorTemplate { args: &ARGS }.render().unwrap())
+        .body(ErrorTemplate {
+            status_code: StatusCode::NOT_FOUND,
+            args: &ARGS 
+        }.render().unwrap())
 }

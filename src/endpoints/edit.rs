@@ -6,6 +6,7 @@ use crate::util::misc::remove_expired;
 use crate::util::pasta_id_converter::CONVERTER;
 use crate::{AppState, Pasta, ARGS};
 use actix_multipart::Multipart;
+use actix_web::http::StatusCode;
 use actix_web::{get, post, web, Error, HttpResponse};
 use askama::Template;
 use futures::TryStreamExt;
@@ -42,9 +43,12 @@ pub async fn get_edit(data: web::Data<AppState>, id: web::Path<String>) -> HttpR
         }
     }
 
-    HttpResponse::Ok()
+    HttpResponse::NotFound()
         .content_type("text/html")
-        .body(ErrorTemplate { args: &ARGS }.render().unwrap())
+        .body(ErrorTemplate {
+            status_code: StatusCode::NOT_FOUND,
+            args: &ARGS 
+        }.render().unwrap())
 }
 
 #[post("/edit/{id}")]
@@ -97,7 +101,10 @@ pub async fn post_edit(
         }
     }
 
-    Ok(HttpResponse::Ok()
+    Ok(HttpResponse::NotFound()
         .content_type("text/html")
-        .body(ErrorTemplate { args: &ARGS }.render().unwrap()))
+        .body(ErrorTemplate {
+            status_code: StatusCode::NOT_FOUND,
+            args: &ARGS 
+        }.render().unwrap()))
 }

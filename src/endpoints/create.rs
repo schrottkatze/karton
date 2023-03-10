@@ -5,6 +5,8 @@ use crate::util::misc::is_valid_url;
 use crate::util::pasta_id_converter::CONVERTER;
 use crate::{AppState, Pasta, ARGS};
 use actix_multipart::Multipart;
+use actix_web::http::StatusCode;
+use actix_web::web::{Bytes, BytesMut, BufMut};
 use actix_web::{get, web, Error, HttpResponse, Responder};
 use askama::Template;
 use bytesize::ByteSize;
@@ -13,6 +15,8 @@ use log::warn;
 use rand::Rng;
 use std::io::Write;
 use std::time::{SystemTime, UNIX_EPOCH};
+
+use super::errors::ErrorTemplate;
 
 #[derive(Template)]
 #[template(path = "index.html")]
@@ -115,12 +119,20 @@ pub async fn create(
                 }
             }
             "content" => {
-                let mut content = String::from("");
+                let mut content = BytesMut::new();
                 while let Some(chunk) = field.try_next().await? {
-                    content.push_str(std::str::from_utf8(&chunk).unwrap().to_string().as_str());
+                    content.put(chunk);
                 }
                 if !content.is_empty() {
-                    new_pasta.content = content;
+                    new_pasta.content = match String::from_utf8(content.to_vec()) {
+                        Ok(v) => v,
+                        Err(e) => return Ok(HttpResponse::BadRequest()
+                            .content_type("text/html")
+                            .body(ErrorTemplate { 
+                                status_code: StatusCode::BAD_REQUEST,
+                                args: &ARGS 
+                            }.render().unwrap())),
+                    };
 
                     new_pasta.pasta_type = if is_valid_url(new_pasta.content.as_str()) {
                         String::from("url")

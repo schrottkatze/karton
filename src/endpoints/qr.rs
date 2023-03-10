@@ -5,6 +5,7 @@ use crate::util::hashids::to_u64 as hashid_to_u64;
 use crate::util::misc::{self, remove_expired};
 use crate::AppState;
 use crate::util::pasta_id_converter::CONVERTER;
+use actix_web::http::StatusCode;
 use actix_web::{get, web, HttpResponse};
 use askama::Template;
 
@@ -63,7 +64,10 @@ pub async fn getqr(data: web::Data<AppState>, id: web::Path<String>) -> HttpResp
 
     // otherwise
     // send pasta not found error
-    HttpResponse::Ok()
+    HttpResponse::NotFound()
         .content_type("text/html")
-        .body(ErrorTemplate { args: &ARGS }.render().unwrap())
+        .body(ErrorTemplate { 
+            status_code: StatusCode::NOT_FOUND,
+            args: &ARGS
+        }.render().unwrap())
 }
