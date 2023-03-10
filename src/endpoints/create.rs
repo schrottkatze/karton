@@ -6,7 +6,7 @@ use crate::util::pasta_id_converter::CONVERTER;
 use crate::{AppState, Pasta, ARGS};
 use actix_multipart::Multipart;
 use actix_web::http::StatusCode;
-use actix_web::web::{Bytes, BytesMut, BufMut};
+use actix_web::web::{BytesMut, BufMut};
 use actix_web::{get, web, Error, HttpResponse, Responder};
 use askama::Template;
 use bytesize::ByteSize;
@@ -126,7 +126,7 @@ pub async fn create(
                 if !content.is_empty() {
                     new_pasta.content = match String::from_utf8(content.to_vec()) {
                         Ok(v) => v,
-                        Err(e) => return Ok(HttpResponse::BadRequest()
+                        Err(_) => return Ok(HttpResponse::BadRequest()
                             .content_type("text/html")
                             .body(ErrorTemplate { 
                                 status_code: StatusCode::BAD_REQUEST,
