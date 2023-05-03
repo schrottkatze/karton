@@ -89,7 +89,8 @@ This is only a rough time guide for what to get done by which version, nothing f
 - [ ] Installation guides 
 	 - [x] nix flake
 - [ ] Copying embed urls more easily (some button for that)
-- [ ] Api for requesting customized url info
+	- [ ] "raw" if it isn't an image, if it is "embed"
+- [ ] Api for requesting customized api info
 - [ ] Config file support 
 - [ ] Markdown pastas
 
